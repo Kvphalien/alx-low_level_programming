@@ -12,8 +12,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int fd, read_val;
-	char buffer[32];
+	int fd;
 
 	if (argc != 2)
 	{
