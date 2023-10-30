@@ -4,6 +4,9 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+/* Function prototype */
+void handle_error_usage(char *prog_name);
+
 /**
  * main - Entry point function to copy the contents of one file to another.
  * @argc: The number of arguments.
@@ -13,13 +16,9 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, read_chars, write_chars;
-	char buffer[1024];
-
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
+		handle_error_usage(argv[0]);
 	}
 
 	/* File opening and error handling */
@@ -29,5 +28,15 @@ int main(int argc, char *argv[])
 	/* File closing and error handling */
 
 	return (0);
+}
+
+/**
+ * handle_error_usage - Handles error for incorrect command usage.
+ * @prog_name: The name of the program.
+ */
+void handle_error_usage(char *prog_name)
+{
+	dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", prog_name);
+	exit(97);
 }
 

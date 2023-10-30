@@ -16,5 +16,8 @@ int append_text_to_file(const char *filename, char *text_content);
 /* int _putchar(char c) */
 int _putchar(char c);
 
+/* void handle_error_usage(char *prog_name) */
+void handle_error_usage(char *prog_name);
+
 #endif /* MAIN_H */
 
